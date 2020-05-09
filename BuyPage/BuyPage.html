@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SHARE2CARE</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <div class="inner">
+        <a href="index.html" class="logo"><strong>SG unites</strong></a>
+        <nav id="nav">
+          <a href="index.html">Home</a>
+          <a href="../Signup and Login pages/Login.html">Login</a>
+          <a href="../Signup and Login pages/SignUp.html">Sign Up</a>
+        </nav>
+        <a href="#navPanel" class="navPanelToggle"
+          ><span class="fa fa-bars"></span
+        ></a>
+      </div>
+    </header>
+
+    <!-- Banner -->
+    <section id="banner">
+      <div class="inner">
+        <header>
+          <h1>Pick a Category</h1>
+        </header>
+
+        <div class="flex">
+          <div>
+            <!-- <span class="icon fa-car"></span> -->
+            <img src="images/toiletpaper.jpg" width="200" height = "200" id = "toilet_paper">
+            <h3>Toiletries</h3>
+          </div>
+
+          <div>
+            <img src="images/medical.jpg" width="200" height = "200">
+            <h3>Medical Supplies</h3>
+          </div>
+
+          <div>
+            <img src="images/food.jpg" width="200" height = "200">
+            <h3>Food</h3>
+          </div>
+        </div>
+
+
+        <div class="flex">
+          <div>
+            <!-- <span class="icon fa-car"></span> -->
+            <img src="images/beverages.jpg" width="200" height = "200">
+            <h3>Beverages</h3>
+          </div>
+
+          <div>
+            <img src="images/snacks.jpg" width="200" height = "200">
+            <h3>Snacks</h3>
+          </div>
+
+          <div>
+            <img src="images/others.jpg" width="200" height = "200">
+            <h3>Others</h3>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <script type="text/javascript">
+      
+      document.getElementById("toilet_paper").onclick = function(){
+        localStorage["Category"] = "toiletries";
+        window.location.href = "../BuyItemsPage/BuyItemsPage.html"
+      };
+
+    </script>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="copyright">
+          &copy; TEAM NUS
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

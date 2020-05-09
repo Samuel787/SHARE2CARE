@@ -22,12 +22,16 @@
         if(mysqli_connect_error()){
             die('Connect Error('.mysqli_connect_errno().')'.mysqli_connect_error());
         } else {
-            $sql = "select password from users where users.email = '$email'";
+            $sql = "select username, password from users where users.email = '$email'";
             $result = mysqli_query($conn, $sql);
             while($row = mysqli_fetch_array($result)){
                 if($row["password"] == $pwd1){
                     $conn -> close();
-                    header('Location: '.'../../HomePage/index.html'); //login
+                    $userName = $row["username"];
+                    //store the username and email inside localStorage
+                    echo "<script type='text/javascript'>localStorage[\"email\"]='$email'; localStorage[\"username\"] = '$userName'</script>";
+                    //redirect to home page
+                    echo "<script type = 'text/javascript'>window.location.href='../../HomePage/index.html';</script>";
                 } else {
                     $conn -> close();
                     $message = "In correct email or password!";
