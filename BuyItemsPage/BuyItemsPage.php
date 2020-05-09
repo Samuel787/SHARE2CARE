@@ -12,9 +12,9 @@
       <div class="inner">
         <a href="index.html" class="logo"><strong>SG unites</strong></a>
         <nav id="nav">
-          <a href="index.html">Home</a>
-          <a href="../Signup and Login pages/Login.html">Login</a>
-          <a href="../Signup and Login pages/SignUp.html">Sign Up</a>
+          <a href="../BuyItemsPage/BuyItemsPage.php">Buy</a>
+          <a href="../SellPage/SellPage.html">Sell</a>
+          <a href="../HomePage/">Log Out</a>
         </nav>
         <a href="#navPanel" class="navPanelToggle"
           ><span class="fa fa-bars"></span
@@ -26,29 +26,44 @@
     <section id="banner">
       <div class="inner">
         <header>
-          <h1>Welcome to SHARE2CARE</h1>
+          <h1>Items Available</h1>
         </header>
 
-        <div class="flex">
-          <div>
-            <span class="icon fa-car"></span>
-            <h3>Quick Delivery</h3>
-          </div>
+        <table class="table table-dark">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Seller</th>
+              <th scope="col">Item</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Price/Per Unit</th>
+              <th scope="col">Market Price</th>
+              <th scope="col">Location</th>
+              <th scope="col">Contact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+              //connect to db
+              $host = 'localhost';
+              $dbusername = 'root';
+              $dbpassword = '';
+              $dbname = 'sgunited';
 
-          <div>
-            <span class="icon fa-camera"></span>
-            <h3>Easy Upload</h3>
-          </div>
+              //create connection
+              $conn = new mysqli($host, $dbusername, $dbpassword, $dbname);
+              $sql = "select * from sells";
+              $result = $conn -> query($sql);
+              if($result -> num_rows > 0){
+                while($row = $result -> fetch_assoc()){
+                  echo "<tr><td>".$row["Username"]."</td><td>".$row['item_desc']."</td><td>".$row['quantity']."</td><td>".$row['price']."</td><td>".$row['mkt_price']."</td><td>".$row['location']."</td><td><button type='button' class='btn btn-primary'>Contact</button></td></tr>";
+                }
+              } else {
+                echo "<script type='text/javascript'>alert('No records found')</script>";
+              }
+            ?>
+          </tbody>
+        </table>
 
-          <div>
-            <span class="icon fa-bug"></span>
-            <h3>Trustworthy</h3>
-          </div>
-        </div>
-
-        <footer>
-          <a href="#" class="button">Get Started</a>
-        </footer>
       </div>
     </section>
 
@@ -88,10 +103,10 @@
       </div>
     </footer>
 
-    <script type = "text/javascript">
+    <!-- <script type = "text/javascript">
       value = localStorage["Category"];
       alert("the value is: "+value);
-    </script>
+    </script> -->
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/skel.min.js"></script>

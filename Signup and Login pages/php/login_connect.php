@@ -31,7 +31,7 @@
                     //store the username and email inside localStorage
                     echo "<script type='text/javascript'>localStorage[\"email\"]='$email'; localStorage[\"username\"] = '$userName'</script>";
                     //redirect to home page
-                    echo "<script type = 'text/javascript'>window.location.href='../../HomePage/index.html';</script>";
+                    echo "<script type = 'text/javascript'>window.location.href='../../BuyItemsPage/BuyItemsPage.php';</script>";
                 } else {
                     $conn -> close();
                     $message = "In correct email or password!";

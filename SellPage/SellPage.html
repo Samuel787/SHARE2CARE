@@ -12,9 +12,9 @@
       <div class="inner">
         <a href="index.html" class="logo"><strong>SG unites</strong></a>
         <nav id="nav">
-          <a href="index.html">Home</a>
-          <a href="../Signup and Login pages/Login.html">Login</a>
-          <a href="../Signup and Login pages/SignUp.html">Sign Up</a>
+          <a href="../BuyItemsPage/BuyItemsPage.php">Buy</a>
+          <a href="../SellPage/SellPage.html">Sell</a>
+          <a href="../HomePage/">Log Out</a>
         </nav>
         <a href="#navPanel" class="navPanelToggle"
           ><span class="fa fa-bars"></span
@@ -35,10 +35,36 @@
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1"></span>
             </div>
+            <input type="text" name="username" class="form-control" placeholder="Enter Username" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+          <br/>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"></span>
+            </div>
+            <input type="text" name="email" class="form-control" placeholder="Enter Email" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+          <br/>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"></span>
+            </div>
             <input type="text" name="item_des" class="form-control" placeholder="Item Description" aria-label="Username" aria-describedby="basic-addon1">
           </div>
           <br/>
 
+          <select name="cat" class="custom-select">
+            <option selected>Choose a Category for Item</option>
+            <option value="1">Toiletries</option>
+            <option value="2">Medical Supplies</option>
+            <option value="3">Food</option>
+            <option value="4">Beverages</option>
+            <option value="5">Snacks</option>
+            <option value="6">Others</option>
+          </select>
+          <br/>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1"></span>
@@ -51,10 +77,18 @@
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1"></span>
             </div>
+            <input type="text" name="item_quant" class="form-control" placeholder="Quantity" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+          <br/>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"></span>
+            </div>
             <input type="text" name="item_loc" class="form-control" placeholder="Location" aria-label="Username" aria-describedby="basic-addon1">
           </div>
           <br/>
-          
+
           <div class="input-group form-button">
             <input
                     type="submit"
@@ -71,6 +105,10 @@
         </form>
       </div>
     </section>
+
+    <script type = "text/javascript">
+      document.getElementById("custId").value = localStorage.getItem("username");
+    </script>
 
     <!-- Footer -->
     <footer id="footer">

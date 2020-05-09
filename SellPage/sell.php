@@ -1,15 +1,13 @@
 <?php
     //name, email, passwrd
+
+    $username = filter_input(INPUT_POST, 'username');
+    $email = filter_input(INPUT_POST, 'email');
     $item_des = filter_input(INPUT_POST, 'item_des');
     $item_price = filter_input(INPUT_POST, 'item_price');
     $item_loc = filter_input(INPUT_POST, 'item_loc');
-    
-    /**
-     * Extract out the username and email as well
-     */
-    $username = "<script>document.write(localStorage.getItem('username'));</script>";
-    $email = "<script>document.write(localStorage.getItem('email'));</script>";
-    
+    $item_cateogry = filter_input(INPUT_POST, 'cat');
+    $item_quant = filter_input(INPUT_POST, 'item_quant');
     if(empty($item_des) || 
         empty($item_price) || 
         empty($item_loc) ||
@@ -31,10 +29,11 @@
         if(mysqli_connect_error()){
             die('Connect Error('.mysqli_connect_errno().')'.mysqli_connect_error());
         } else {
-            $sql = "INSERT INTO sells (Username, Email, item_desc, price, mkt_price, location) VALUES ('$username', '$email', '$item_des', 5.5, 10, '$item_loc')";
+            $sql = "INSERT INTO sells (Username, Email, item_desc, price, mkt_price, location, category, quantity) values ('$username', '$email','$item_des', '$item_price', '5', '$item_loc', '$item_cateogry', '$item_quant');";
             if($conn -> query($sql)){
                 //echo "New record is inserted successfully";
-                header('Location: '.'../Login.html');
+                echo "<script type='text/javascript'>alert('Successfully Added'); window.location.href='./SellPage.html';</script>";
+                //header('Location: '.'./SellPage.html');
             } else {
                 echo "Error: ".$sql."<br/>".$conn->error;
             }

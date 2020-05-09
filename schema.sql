@@ -13,11 +13,13 @@ create table sells(
     id int AUTO_INCREMENT primary key,
     Username varchar(256),
     Email varchar(512),
-    item_desc text,
-    price double(10, 2),
-    mkt_price double(10, 2),
-    location text
+    item_desc varchar(256),
+    price varchar(256),
+    mkt_price varchar(256),
+    location varchar(1024),
+    category varchar(512),
+    quantity varchar(512)
 );
 
 insert into `users`(id, Username, Email, Password) values (1, "test", "test@test.com", "test");
-insert into `sells`(id, Username, Email, item_desc, price, mkt_price, location) values (1, "test", "test@test.com","shampoo", 4.5, 5, "Jurong");
+insert into `sells`(id, Username, Email, item_desc, price, mkt_price, location, category, quantity) values (1, "test", "test@test.com","shampoo", '4.5', '5', "Jurong", "Toiletries", "1");
