@@ -15,7 +15,7 @@
         <nav id="nav">
           <a href="../MyItems/MyItemsPage.php">My Sales</a>
           <a href="../BuyItemsPage/BuyItemsPage.php">Buy</a>
-          <a href="../SellPage1/SellPage.html">Sell</a>
+          <a href="../SellPage1/SellPage.php">Sell</a>
           <a href="../HomePage/">Log Out</a>
         </nav>
         <a href="#navPanel" class="navPanelToggle"
@@ -53,7 +53,9 @@
 
               //create connection
               $conn = new mysqli($host, $dbusername, $dbpassword, $dbname);
-              $sql = "select * from sells";
+
+              $sql = "select * from sells where email = 'test@test.com'";
+              
               $result = $conn -> query($sql);
               if($result -> num_rows > 0){
                 $counter = 0;

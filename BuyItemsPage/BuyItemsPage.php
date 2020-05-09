@@ -52,8 +52,8 @@
               <th scope="col" style="color:#fff; font-size:150%;">Seller</th>
               <th scope="col" style="color:#fff; font-size:150%;">Item</th>
               <th scope="col" style="color:#fff; font-size:150%;">Quantity</th>
-              <th scope="col" style="color:#fff; font-size:150%;">Price/Per Unit</th>
-              <th scope="col" style="color:#fff; font-size:150%;">Market Price</th>
+              <th scope="col" style="color:#fff; font-size:150%;">Price/Per Unit ($)</th>
+              <th scope="col" style="color:#fff; font-size:150%;">Market Price ($)</th>
               <th scope="col" style="color:#fff; font-size:150%;">Location</th>
               <th scope="col" style="color:#fff; font-size:150%;">Contact</th>
             </tr>
@@ -65,8 +65,6 @@
               $dbusername = 'root';
               $dbpassword = '';
               $dbname = 'sgunited';
-
-
 
               //create connection
               $conn = new mysqli($host, $dbusername, $dbpassword, $dbname);
