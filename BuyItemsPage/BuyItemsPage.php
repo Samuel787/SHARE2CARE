@@ -55,7 +55,7 @@
               $result = $conn -> query($sql);
               if($result -> num_rows > 0){
                 while($row = $result -> fetch_assoc()){
-                  echo "<tr><td>".$row["Username"]."</td><td>".$row['item_desc']."</td><td>".$row['quantity']."</td><td>".$row['price']."</td><td>".$row['mkt_price']."</td><td>".$row['location']."</td><td><button type='button' class='btn btn-primary'>Contact</button></td></tr>";
+                  echo "<tr><td>".$row["Username"]."</td><td>".$row['item_desc']."</td><td>".$row['quantity']."</td><td>".$row['price']."</td><td>".$row['mkt_price']."</td><td>".$row['location']."</td><td><button type='button' class='btn btn-primary'><a href='https://chat-d5feb.web.app/'>Contact Me!</a></button></td></tr>";
                 }
               } else {
                 echo "<script type='text/javascript'>alert('No records found')</script>";
