@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
+
   </head>
   <body>
     <!-- Header -->
@@ -14,7 +15,7 @@
         <nav id="nav">
           <a href="../MyItems/MyItemsPage.php">My Sales</a>
           <a href="../BuyItemsPage/BuyItemsPage.php">Buy</a>
-          <a href="../SellPage1/SellPage.php">Sell</a>
+          <a href="../SellPage1/SellPage.html">Sell</a>
           <a href="../HomePage/">Log Out</a>
         </nav>
         <a href="#navPanel" class="navPanelToggle"
@@ -27,32 +28,16 @@
     <section id="banner">
       <div class="inner">
         <header>
-          <h1>Items Available</h1>
-
+          <h1>My Advertisements</h1>
         </header>
 
-
-          <div class = "row" style="width:500px; margin-left:20px;">
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for items.." title="Type in a name">
-          
-          </div>
-          <br/>
-          <div class = "row" style="width:500px; margin-left:20px">
-            <input type="text" id="myInput2" onkeyup="myFunctionLocation()" placeholder="Search for location.." title="Type in a name">
-          </div>
-
-
-          <br/>
-
-        <br/>
-
-        <table class="table table-dark" id="myTable">
-          <thead class="thead-dark">
+        <table class="table table-dark" id="my_items_table">
+          <thead style = "color:#fff;">
             <tr>
               <th scope="col" style="color:#fff; font-size:150%;">Seller</th>
               <th scope="col" style="color:#fff; font-size:150%;">Item</th>
               <th scope="col" style="color:#fff; font-size:150%;">Quantity</th>
-              <th scope="col" style="color:#fff; font-size:150%;">Price/Per Unit</th>
+              <th scope="col" style="color:#fff; font-size:150%;">Price Per Unit</th>
               <th scope="col" style="color:#fff; font-size:150%;">Market Price</th>
               <th scope="col" style="color:#fff; font-size:150%;">Location</th>
               <th scope="col" style="color:#fff; font-size:150%;">Contact</th>
@@ -66,15 +51,15 @@
               $dbpassword = '';
               $dbname = 'sgunited';
 
-
-
               //create connection
               $conn = new mysqli($host, $dbusername, $dbpassword, $dbname);
               $sql = "select * from sells";
               $result = $conn -> query($sql);
               if($result -> num_rows > 0){
+                $counter = 0;
                 while($row = $result -> fetch_assoc()){
-                  echo "<tr><td>".$row["Username"]."</td><td>".$row['item_desc']."</td><td>".$row['quantity']."</td><td>".$row['price']."</td><td>".$row['mkt_price']."</td><td>".$row['location']."</td><td><button type='button' class='btn btn-primary'><a href='https://chat-d5feb.web.app/'>Contact Me!</a></button></td></tr>";
+                  echo "<tr id='".$counter."'><td>".$row["Username"]."</td><td>".$row['item_desc']."</td><td>".$row['quantity']."</td><td>".$row['price']."</td><td>".$row['mkt_price']."</td><td>".$row['location']."</td><td><button type='button' class='btn btn-primary' onclick='myFunction($counter)'>Clear</button></td></tr>";
+                  $counter++;
                 }
               } else {
                 echo "<script type='text/javascript'>alert('No records found')</script>";
@@ -85,6 +70,15 @@
 
       </div>
     </section>
+
+    <script>
+      function myFunction(x) {
+        
+        row = document.getElementById(x);
+        row.parentNode.removeChild(row);
+        //document.getElementById("demo").innerHTML = "Hello World";
+      }
+    </script>
 
     <!-- Footer -->
     <footer id="footer">
@@ -131,45 +125,5 @@
     <script src="assets/js/skel.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-
-    <script>
-function myFunction() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[1];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
-  }
-}
-
-function myFunctionLocation() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput2");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[5];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
-  }
-}
-</script>
   </body>
 </html>
