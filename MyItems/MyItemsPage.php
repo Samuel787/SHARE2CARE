@@ -54,8 +54,8 @@
               //create connection
               $conn = new mysqli($host, $dbusername, $dbpassword, $dbname);
 
-              $sql = "select * from sells where email = 'test@test.com'";
-              
+              $sql = "select * from sells where email = 'emma@gmail.com'";
+
               $result = $conn -> query($sql);
               if($result -> num_rows > 0){
                 $counter = 0;
